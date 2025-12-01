@@ -2,7 +2,7 @@
 <aside class="app-sidebar bg-body-secondary shadow" data-bs-theme="dark">
     <!-- Brand Logo -->
     <div class="sidebar-brand">
-        <a href="/GestionInventario/public/" class="brand-link">
+        <a href="<?= BASE_URL ?>" class="brand-link">
             <i class="bi bi-box-seam brand-icon opacity-75 fs-4"></i>
             <span class="brand-text fw-light">Inventario</span>
         </a>
@@ -16,8 +16,8 @@
 
                 <!-- Dashboard -->
                 <li class="nav-item">
-                    <a href="/GestionInventario/public/"
-                        class="nav-link <?= ($_SERVER['REQUEST_URI'] == '/GestionInventario/public/' || $_SERVER['REQUEST_URI'] == '/GestionInventario/public/index.php') ? 'active' : '' ?>">
+                    <a href="<?= BASE_URL ?>"
+                        class="nav-link <?= ($_SERVER['REQUEST_URI'] == '<?= BASE_URL ?>' || $_SERVER['REQUEST_URI'] == '<?= BASE_URL ?>index.php') ? 'active' : '' ?>">
                         <i class="nav-icon bi bi-speedometer"></i>
                         <p>Dashboard</p>
                     </a>
@@ -25,7 +25,7 @@
 
                 <!-- Productos -->
                 <li class="nav-item">
-                    <a href="/GestionInventario/public/product"
+                    <a href="<?= BASE_URL ?>product"
                         class="nav-link <?= (strpos($_SERVER['REQUEST_URI'], '/product') !== false) ? 'active' : '' ?>">
                         <i class="nav-icon bi bi-box"></i>
                         <p>Productos</p>
@@ -34,7 +34,7 @@
 
                 <!-- Categorías -->
                 <li class="nav-item">
-                    <a href="/GestionInventario/public/category"
+                    <a href="<?= BASE_URL ?>category"
                         class="nav-link <?= (strpos($_SERVER['REQUEST_URI'], '/category') !== false) ? 'active' : '' ?>">
                         <i class="nav-icon bi bi-tags"></i>
                         <p>Categorías</p>
@@ -43,7 +43,7 @@
 
                 <!-- Proveedores -->
                 <li class="nav-item">
-                    <a href="/GestionInventario/public/supplier"
+                    <a href="<?= BASE_URL ?>supplier"
                         class="nav-link <?= (strpos($_SERVER['REQUEST_URI'], '/supplier') !== false) ? 'active' : '' ?>">
                         <i class="nav-icon bi bi-truck"></i>
                         <p>Proveedores</p>
@@ -52,7 +52,7 @@
 
                 <!-- Ventas -->
                 <li class="nav-item">
-                    <a href="/GestionInventario/public/sale"
+                    <a href="<?= BASE_URL ?>sale"
                         class="nav-link <?= (strpos($_SERVER['REQUEST_URI'], '/sale') !== false) ? 'active' : '' ?>">
                         <i class="nav-icon bi bi-cart"></i>
                         <p>Ventas</p>
@@ -65,7 +65,7 @@
                 <!-- Usuarios (Solo Admin) -->
                 <?php if (AuthController::isAdmin()): ?>
                     <li class="nav-item">
-                        <a href="/GestionInventario/public/user"
+                        <a href="<?= BASE_URL ?>user"
                             class="nav-link <?= (strpos($_SERVER['REQUEST_URI'], '/user') !== false) ? 'active' : '' ?>">
                             <i class="nav-icon bi bi-people"></i>
                             <p>Usuarios</p>

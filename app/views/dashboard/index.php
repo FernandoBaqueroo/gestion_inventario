@@ -184,17 +184,17 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-3">
-                                <a href="/GestionInventario/public/product/create" class="btn btn-app w-100">
+                                <a href="<?= BASE_URL ?>product/create" class="btn btn-app w-100">
                                     <i class="bi bi-plus-circle"></i> Nuevo Producto
                                 </a>
                             </div>
                             <div class="col-md-3">
-                                <a href="/GestionInventario/public/sale/create" class="btn btn-app w-100">
+                                <a href="<?= BASE_URL ?>sale/create" class="btn btn-app w-100">
                                     <i class="bi bi-cart-plus"></i> Nueva Venta
                                 </a>
                             </div>
                             <div class="col-md-3">
-                                <a href="/GestionInventario/public/product" class="btn btn-app w-100">
+                                <a href="<?= BASE_URL ?>product" class="btn btn-app w-100">
                                     <i class="bi bi-list-ul"></i> Ver Productos
                                 </a>
                             </div>
@@ -261,11 +261,11 @@
                                             </td>
                                             <td>$<?= number_format($product['price'], 2) ?></td>
                                             <td>
-                                                <a href="/GestionInventario/public/product/edit/<?= $product['id'] ?>"
+                                                <a href="<?= BASE_URL ?>product/edit/<?= $product['id'] ?>"
                                                     class="btn btn-sm btn-warning" title="Editar para reponer stock">
                                                     <i class="bi bi-pencil"></i> Reponer
                                                 </a>
-                                                <a href="/GestionInventario/public/product/show/<?= $product['id'] ?>"
+                                                <a href="<?= BASE_URL ?>product/show/<?= $product['id'] ?>"
                                                     class="btn btn-sm btn-info" title="Ver detalles">
                                                     <i class="bi bi-eye"></i>
                                                 </a>
@@ -276,7 +276,7 @@
                             </table>
                         </div>
                         <div class="card-footer text-center">
-                            <a href="/GestionInventario/public/product" class="btn btn-sm btn-primary">
+                            <a href="<?= BASE_URL ?>product" class="btn btn-sm btn-primary">
                                 <i class="bi bi-list"></i> Ver Todos los Productos
                             </a>
                         </div>

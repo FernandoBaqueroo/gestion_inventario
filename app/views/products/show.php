@@ -10,8 +10,8 @@
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-end">
-                    <li class="breadcrumb-item"><a href="/GestionInventario/public/">Inicio</a></li>
-                    <li class="breadcrumb-item"><a href="/GestionInventario/public/product">Productos</a></li>
+                    <li class="breadcrumb-item"><a href="<?= BASE_URL ?>">Inicio</a></li>
+                    <li class="breadcrumb-item"><a href="<?= BASE_URL ?>product">Productos</a></li>
                     <li class="breadcrumb-item active"><?= htmlspecialchars($product['name']) ?></li>
                 </ol>
             </div>
@@ -109,11 +109,11 @@
                     </div>
                     
                     <div class="card-footer">
-                        <a href="/GestionInventario/public/product/edit/<?= $product['id'] ?>" 
+                        <a href="<?= BASE_URL ?>product/edit/<?= $product['id'] ?>" 
                            class="btn btn-warning">
                             <i class="bi bi-pencil"></i> Editar Producto
                         </a>
-                        <a href="/GestionInventario/public/product" 
+                        <a href="<?= BASE_URL ?>product" 
                            class="btn btn-secondary">
                             <i class="bi bi-arrow-left"></i> Volver a la Lista
                         </a>
@@ -179,11 +179,11 @@
                         </h3>
                     </div>
                     <div class="card-body">
-                        <a href="/GestionInventario/public/product/edit/<?= $product['id'] ?>" 
+                        <a href="<?= BASE_URL ?>product/edit/<?= $product['id'] ?>" 
                            class="btn btn-warning btn-block mb-2 w-100">
                             <i class="bi bi-pencil"></i> Editar
                         </a>
-                        <a href="/GestionInventario/public/product/deleteAction/<?= $product['id'] ?>" 
+                        <a href="<?= BASE_URL ?>product/deleteAction/<?= $product['id'] ?>" 
                            class="btn btn-danger btn-block w-100"
                            onclick="return confirm('¿Estás seguro de eliminar este producto?')">
                             <i class="bi bi-trash"></i> Eliminar

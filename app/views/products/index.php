@@ -10,7 +10,7 @@
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-end">
-                    <li class="breadcrumb-item"><a href="/GestionInventario/public/">Inicio</a></li>
+                    <li class="breadcrumb-item"><a href="<?= BASE_URL ?>">Inicio</a></li>
                     <li class="breadcrumb-item active">Productos</li>
                 </ol>
             </div>
@@ -45,7 +45,7 @@
                 </h3>
                 <div class="card-tools">
                     <?php if (AuthController::isAdmin()): ?>
-                        <a href="/GestionInventario/public/product/create" class="btn btn-primary btn-sm">
+                        <a href="<?= BASE_URL ?>product/create" class="btn btn-primary btn-sm">
                             <i class="bi bi-plus-circle"></i> Nuevo Producto
                         </a>
                     <?php endif; ?>
@@ -56,7 +56,7 @@
                 <?php if (empty($products)): ?>
                     <div class="alert alert-info">
                         <i class="bi bi-info-circle"></i> No hay productos registrados.
-                        <a href="/GestionInventario/public/product/create">Crear el primero</a>
+                        <a href="<?= BASE_URL ?>product/create">Crear el primero</a>
                     </div>
                 <?php else: ?>
                     <div class="table-responsive">
@@ -89,7 +89,7 @@
                                         </td>
                                         <td><code><?= htmlspecialchars($product['code']) ?></code></td>
                                         <td>
-                                            <a href="/GestionInventario/public/product/show/<?= $product['id'] ?>"
+                                            <a href="<?= BASE_URL ?>product/show/<?= $product['id'] ?>"
                                                 class="text-decoration-none">
                                                 <?= htmlspecialchars($product['name']) ?>
                                             </a>
@@ -118,16 +118,16 @@
                                             <?php endif; ?>
                                         </td>
                                         <td>
-                                            <a href="/GestionInventario/public/product/show/<?= $product['id'] ?>"
+                                            <a href="<?= BASE_URL ?>product/show/<?= $product['id'] ?>"
                                                 class="btn btn-sm btn-info" title="Ver">
                                                 <i class="bi bi-eye"></i>
                                             </a>
                                             <?php if (AuthController::isAdmin()): ?>
-                                                <a href="/GestionInventario/public/product/edit/<?= $product['id'] ?>"
+                                                <a href="<?= BASE_URL ?>product/edit/<?= $product['id'] ?>"
                                                     class="btn btn-sm btn-warning" title="Editar">
                                                     <i class="bi bi-pencil"></i>
                                                 </a>
-                                                <a href="/GestionInventario/public/product/deleteAction/<?= $product['id'] ?>"
+                                                <a href="<?= BASE_URL ?>product/deleteAction/<?= $product['id'] ?>"
                                                     class="btn btn-sm btn-danger" title="Eliminar"
                                                     onclick="return confirm('¿Estás seguro de eliminar este producto?')">
                                                     <i class="bi bi-trash"></i>

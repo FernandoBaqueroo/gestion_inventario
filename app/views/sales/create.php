@@ -10,8 +10,8 @@
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-end">
-                    <li class="breadcrumb-item"><a href="/GestionInventario/public/">Inicio</a></li>
-                    <li class="breadcrumb-item"><a href="/GestionInventario/public/sale">Ventas</a></li>
+                    <li class="breadcrumb-item"><a href="<?= BASE_URL ?>">Inicio</a></li>
+                    <li class="breadcrumb-item"><a href="<?= BASE_URL ?>sale">Ventas</a></li>
                     <li class="breadcrumb-item active">Nueva Venta</li>
                 </ol>
             </div>
@@ -104,7 +104,7 @@
         </div>
 
         <!-- Formulario oculto para enviar -->
-        <form id="saleForm" action="/GestionInventario/public/sale/store" method="POST" style="display: none;">
+        <form id="saleForm" action="<?= BASE_URL ?>sale/store" method="POST" style="display: none;">
             <input type="hidden" name="items" id="itemsInput">
         </form>
 
@@ -131,7 +131,7 @@ $(document).ready(function() {
 
         searchTimeout = setTimeout(function() {
             $.ajax({
-                url: '/GestionInventario/public/sale/searchProducts',
+                url: '<?= BASE_URL ?>sale/searchProducts',
                 method: 'GET',
                 data: { q: search },
                 dataType: 'json',

@@ -10,7 +10,7 @@
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-end">
-                    <li class="breadcrumb-item"><a href="/GestionInventario/public/">Inicio</a></li>
+                    <li class="breadcrumb-item"><a href="<?= BASE_URL ?>">Inicio</a></li>
                     <li class="breadcrumb-item active">Proveedores</li>
                 </ol>
             </div>
@@ -45,7 +45,7 @@
                 </h3>
                 <div class="card-tools">
                     <?php if (AuthController::isAdmin()): ?>
-                        <a href="/GestionInventario/public/supplier/create" class="btn btn-primary btn-sm">
+                        <a href="<?= BASE_URL ?>supplier/create" class="btn btn-primary btn-sm">
                             <i class="bi bi-plus-circle"></i> Nuevo Proveedor
                         </a>
                     <?php endif; ?>
@@ -56,7 +56,7 @@
                 <?php if (empty($suppliers)): ?>
                     <div class="alert alert-info">
                         <i class="bi bi-info-circle"></i> No hay proveedores registrados.
-                        <a href="/GestionInventario/public/supplier/create">Crear el primero</a>
+                        <a href="<?= BASE_URL ?>supplier/create">Crear el primero</a>
                     </div>
                 <?php else: ?>
                     <div class="table-responsive">
@@ -95,11 +95,11 @@
                                         <td><?= date('d/m/Y', strtotime($supplier['created_at'])) ?></td>
                                         <td>
                                             <?php if (AuthController::isAdmin()): ?>
-                                                <a href="/GestionInventario/public/supplier/edit/<?= $supplier['id'] ?>"
+                                                <a href="<?= BASE_URL ?>supplier/edit/<?= $supplier['id'] ?>"
                                                     class="btn btn-sm btn-warning" title="Editar">
                                                     <i class="bi bi-pencil"></i>
                                                 </a>
-                                                <a href="/GestionInventario/public/supplier/deleteAction/<?= $supplier['id'] ?>"
+                                                <a href="<?= BASE_URL ?>supplier/deleteAction/<?= $supplier['id'] ?>"
                                                     class="btn btn-sm btn-danger" title="Eliminar"
                                                     onclick="return confirm('¿Estás seguro de eliminar este proveedor?')">
                                                     <i class="bi bi-trash"></i>

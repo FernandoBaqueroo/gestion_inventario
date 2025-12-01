@@ -10,8 +10,8 @@
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-end">
-                    <li class="breadcrumb-item"><a href="/GestionInventario/public/">Inicio</a></li>
-                    <li class="breadcrumb-item"><a href="/GestionInventario/public/product">Productos</a></li>
+                    <li class="breadcrumb-item"><a href="<?= BASE_URL ?>">Inicio</a></li>
+                    <li class="breadcrumb-item"><a href="<?= BASE_URL ?>product">Productos</a></li>
                     <li class="breadcrumb-item active">Editar</li>
                 </ol>
             </div>
@@ -41,7 +41,7 @@
                         </h3>
                     </div>
                     
-                    <form action="/GestionInventario/public/product/update/<?= $product['id'] ?>" method="POST" enctype="multipart/form-data">
+                    <form action="<?= BASE_URL ?>product/update/<?= $product['id'] ?>" method="POST" enctype="multipart/form-data">
                         <div class="card-body">
                             
                             <!-- Código -->
@@ -168,7 +168,7 @@
                             <button type="submit" class="btn btn-warning">
                                 <i class="bi bi-save"></i> Actualizar Producto
                             </button>
-                            <a href="/GestionInventario/public/product" class="btn btn-secondary">
+                            <a href="<?= BASE_URL ?>product" class="btn btn-secondary">
                                 <i class="bi bi-x-circle"></i> Cancelar
                             </a>
                         </div>

@@ -28,7 +28,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" crossorigin="anonymous"></script>
 
 <!-- AdminLTE App -->
-<script src="/GestionInventario/public/assets/dist/js/adminlte.min.js"></script>
+<script src="<?= BASE_URL ?>assets/dist/js/adminlte.min.js"></script>
 
 <!-- ChartJS -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>

@@ -116,7 +116,7 @@
         <button onclick="window.print()" class="btn btn-primary">
             <i class="bi bi-printer"></i> Imprimir
         </button>
-        <a href="/GestionInventario/public/sale/show/<?= $sale['id'] ?>" class="btn btn-secondary">
+        <a href="<?= BASE_URL ?>sale/show/<?= $sale['id'] ?>" class="btn btn-secondary">
             <i class="bi bi-arrow-left"></i> Volver
         </a>
         <button onclick="window.close()" class="btn btn-secondary">

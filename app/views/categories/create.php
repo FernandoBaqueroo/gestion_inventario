@@ -10,8 +10,8 @@
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-end">
-                    <li class="breadcrumb-item"><a href="/GestionInventario/public/">Inicio</a></li>
-                    <li class="breadcrumb-item"><a href="/GestionInventario/public/category">Categorías</a></li>
+                    <li class="breadcrumb-item"><a href="<?= BASE_URL ?>">Inicio</a></li>
+                    <li class="breadcrumb-item"><a href="<?= BASE_URL ?>category">Categorías</a></li>
                     <li class="breadcrumb-item active">Nueva</li>
                 </ol>
             </div>
@@ -41,7 +41,7 @@
                         </h3>
                     </div>
                     
-                    <form action="/GestionInventario/public/category/store" method="POST">
+                    <form action="<?= BASE_URL ?>category/store" method="POST">
                         <div class="card-body">
                             
                             <!-- Nombre -->
@@ -73,7 +73,7 @@
                             <button type="submit" class="btn btn-primary">
                                 <i class="bi bi-save"></i> Guardar Categoría
                             </button>
-                            <a href="/GestionInventario/public/category" class="btn btn-secondary">
+                            <a href="<?= BASE_URL ?>category" class="btn btn-secondary">
                                 <i class="bi bi-x-circle"></i> Cancelar
                             </a>
                         </div>

@@ -10,8 +10,8 @@
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-end">
-                    <li class="breadcrumb-item"><a href="/GestionInventario/public/">Inicio</a></li>
-                    <li class="breadcrumb-item"><a href="/GestionInventario/public/supplier">Proveedores</a></li>
+                    <li class="breadcrumb-item"><a href="<?= BASE_URL ?>">Inicio</a></li>
+                    <li class="breadcrumb-item"><a href="<?= BASE_URL ?>supplier">Proveedores</a></li>
                     <li class="breadcrumb-item active">Editar</li>
                 </ol>
             </div>
@@ -41,7 +41,7 @@
                         </h3>
                     </div>
                     
-                    <form action="/GestionInventario/public/supplier/update/<?= $supplier['id'] ?>" method="POST">
+                    <form action="<?= BASE_URL ?>supplier/update/<?= $supplier['id'] ?>" method="POST">
                         <div class="card-body">
                             
                             <!-- Nombre de la empresa -->
@@ -81,7 +81,7 @@
                             <button type="submit" class="btn btn-warning">
                                 <i class="bi bi-save"></i> Actualizar Proveedor
                             </button>
-                            <a href="/GestionInventario/public/supplier" class="btn btn-secondary">
+                            <a href="<?= BASE_URL ?>supplier" class="btn btn-secondary">
                                 <i class="bi bi-x-circle"></i> Cancelar
                             </a>
                         </div>

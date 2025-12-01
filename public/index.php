@@ -2,6 +2,15 @@
 
 session_start();
 
+// Definir BASE_URL según el entorno
+if (getenv('APP_ENV') === 'production') {
+    // En Railway/Producción
+    define('BASE_URL', '/');
+} else {
+    // En desarrollo local (XAMPP)
+    define('BASE_URL', '/GestionInventario/public/');
+}
+
 // Mostrar errores solo en desarrollo (XAMPP)
 // En producción (Railway) estos deben estar desactivados
 if (getenv('APP_ENV') !== 'production') {

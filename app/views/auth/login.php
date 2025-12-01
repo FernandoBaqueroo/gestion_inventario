@@ -12,14 +12,14 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     
     <!-- AdminLTE -->
-    <link rel="stylesheet" href="/GestionInventario/public/assets/dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>assets/dist/css/adminlte.min.css">
 </head>
 <body class="login-page bg-body-secondary" data-bs-theme="light">
     <div class="login-box">
         <!-- Logo -->
         <div class="card card-outline card-primary">
             <div class="card-header text-center">
-                <a href="/GestionInventario/public/" class="link-dark text-decoration-none">
+                <a href="<?= BASE_URL ?>" class="link-dark text-decoration-none">
                     <h1 class="mb-0">
                         <i class="bi bi-box-seam"></i>
                         <b>Sistema</b> Inventario
@@ -38,7 +38,7 @@
                 </div>
                 <?php endif; ?>
 
-                <form action="/GestionInventario/public/auth/authenticate" method="post">
+                <form action="<?= BASE_URL ?>auth/authenticate" method="post">
                     <!-- Username -->
                     <div class="input-group mb-3">
                         <input type="text" name="username" class="form-control" placeholder="Usuario" required autofocus>

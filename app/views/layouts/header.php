@@ -19,7 +19,7 @@
         crossorigin="anonymous">
 
     <!-- AdminLTE v4 -->
-    <link rel="stylesheet" href="/GestionInventario/public/assets/dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>assets/dist/css/adminlte.min.css">
 
     <!-- DataTables CSS -->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css">
@@ -39,7 +39,7 @@
                         </a>
                     </li>
                     <li class="nav-item d-none d-md-block">
-                        <a href="/GestionInventario/public/" class="nav-link">Inicio</a>
+                        <a href="<?= BASE_URL ?>" class="nav-link">Inicio</a>
                     </li>
                 </ul>
 
@@ -83,7 +83,7 @@
                             </li>
                             <li class="user-footer">
                                 <a href="#" class="btn btn-default btn-flat">Perfil</a>
-                                <a href="/GestionInventario/public/auth/logout"
+                                <a href="<?= BASE_URL ?>auth/logout"
                                     class="btn btn-default btn-flat float-end">Salir</a>
                             </li>
                         </ul>

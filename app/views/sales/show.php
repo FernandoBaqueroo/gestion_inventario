@@ -10,8 +10,8 @@
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-end">
-                    <li class="breadcrumb-item"><a href="/GestionInventario/public/">Inicio</a></li>
-                    <li class="breadcrumb-item"><a href="/GestionInventario/public/sale">Ventas</a></li>
+                    <li class="breadcrumb-item"><a href="<?= BASE_URL ?>">Inicio</a></li>
+                    <li class="breadcrumb-item"><a href="<?= BASE_URL ?>sale">Ventas</a></li>
                     <li class="breadcrumb-item active">Venta #<?= $sale['id'] ?></li>
                 </ol>
             </div>
@@ -106,12 +106,12 @@
                         </h3>
                     </div>
                     <div class="card-body">
-                        <a href="/GestionInventario/public/sale/ticket/<?= $sale['id'] ?>" 
+                        <a href="<?= BASE_URL ?>sale/ticket/<?= $sale['id'] ?>" 
                            class="btn btn-secondary btn-block w-100 mb-2"
                            target="_blank">
                             <i class="bi bi-printer"></i> Imprimir Ticket
                         </a>
-                        <a href="/GestionInventario/public/sale" 
+                        <a href="<?= BASE_URL ?>sale" 
                            class="btn btn-primary btn-block w-100">
                             <i class="bi bi-arrow-left"></i> Volver al Historial
                         </a>

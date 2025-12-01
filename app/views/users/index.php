@@ -10,7 +10,7 @@
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-end">
-                    <li class="breadcrumb-item"><a href="/GestionInventario/public/">Inicio</a></li>
+                    <li class="breadcrumb-item"><a href="<?= BASE_URL ?>">Inicio</a></li>
                     <li class="breadcrumb-item active">Usuarios</li>
                 </ol>
             </div>
@@ -44,7 +44,7 @@
                     <i class="bi bi-people"></i> Lista de Usuarios
                 </h3>
                 <div class="card-tools">
-                    <a href="/GestionInventario/public/user/create" class="btn btn-primary btn-sm">
+                    <a href="<?= BASE_URL ?>user/create" class="btn btn-primary btn-sm">
                         <i class="bi bi-person-plus"></i> Nuevo Usuario
                     </a>
                 </div>
@@ -82,13 +82,13 @@
                                         </td>
                                         <td><?= date('d/m/Y H:i', strtotime($user['created_at'])) ?></td>
                                         <td>
-                                            <a href="/GestionInventario/public/user/edit/<?= $user['id'] ?>"
+                                            <a href="<?= BASE_URL ?>user/edit/<?= $user['id'] ?>"
                                                 class="btn btn-sm btn-warning" title="Editar">
                                                 <i class="bi bi-pencil"></i>
                                             </a>
 
                                             <?php if ($user['id'] != $_SESSION['user_id']): ?>
-                                                <a href="/GestionInventario/public/user/deleteAction/<?= $user['id'] ?>"
+                                                <a href="<?= BASE_URL ?>user/deleteAction/<?= $user['id'] ?>"
                                                     class="btn btn-sm btn-danger" title="Eliminar"
                                                     onclick="return confirm('¿Estás seguro de eliminar este usuario? Esta acción no se puede deshacer.')">
                                                     <i class="bi bi-trash"></i>

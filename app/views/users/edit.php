@@ -10,8 +10,8 @@
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-end">
-                    <li class="breadcrumb-item"><a href="/GestionInventario/public/">Inicio</a></li>
-                    <li class="breadcrumb-item"><a href="/GestionInventario/public/user">Usuarios</a></li>
+                    <li class="breadcrumb-item"><a href="<?= BASE_URL ?>">Inicio</a></li>
+                    <li class="breadcrumb-item"><a href="<?= BASE_URL ?>user">Usuarios</a></li>
                     <li class="breadcrumb-item active">Editar</li>
                 </ol>
             </div>
@@ -39,7 +39,7 @@
                             <strong><?= htmlspecialchars($user['username']) ?></strong></h3>
                     </div>
 
-                    <form action="/GestionInventario/public/user/update/<?= $user['id'] ?>" method="POST">
+                    <form action="<?= BASE_URL ?>user/update/<?= $user['id'] ?>" method="POST">
                         <div class="card-body">
                             <div class="mb-3">
                                 <label for="username" class="form-label">Nombre de Usuario <span
@@ -103,7 +103,7 @@
                             <button type="submit" class="btn btn-primary">
                                 <i class="bi bi-save"></i> Actualizar Usuario
                             </button>
-                            <a href="/GestionInventario/public/user" class="btn btn-secondary">
+                            <a href="<?= BASE_URL ?>user" class="btn btn-secondary">
                                 Cancelar
                             </a>
                         </div>

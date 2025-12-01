@@ -10,7 +10,7 @@
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-end">
-                    <li class="breadcrumb-item"><a href="/GestionInventario/public/">Inicio</a></li>
+                    <li class="breadcrumb-item"><a href="<?= BASE_URL ?>">Inicio</a></li>
                     <li class="breadcrumb-item active">Ventas</li>
                 </ol>
             </div>
@@ -44,7 +44,7 @@
                     <i class="bi bi-receipt"></i> Lista de Ventas
                 </h3>
                 <div class="card-tools">
-                    <a href="/GestionInventario/public/sale/create" class="btn btn-success btn-sm">
+                    <a href="<?= BASE_URL ?>sale/create" class="btn btn-success btn-sm">
                         <i class="bi bi-plus-circle"></i> Nueva Venta
                     </a>
                 </div>
@@ -54,7 +54,7 @@
                 <?php if (empty($sales)): ?>
                     <div class="alert alert-info">
                         <i class="bi bi-info-circle"></i> No hay ventas registradas.
-                        <a href="/GestionInventario/public/sale/create">Registrar la primera</a>
+                        <a href="<?= BASE_URL ?>sale/create">Registrar la primera</a>
                     </div>
                 <?php else: ?>
                 <div class="table-responsive">
@@ -80,12 +80,12 @@
                                     <strong class="text-success">$<?= number_format($sale['total'], 2) ?></strong>
                                 </td>
                                 <td>
-                                    <a href="/GestionInventario/public/sale/show/<?= $sale['id'] ?>" 
+                                    <a href="<?= BASE_URL ?>sale/show/<?= $sale['id'] ?>" 
                                        class="btn btn-sm btn-info" 
                                        title="Ver detalle">
                                         <i class="bi bi-eye"></i>
                                     </a>
-                                    <a href="/GestionInventario/public/sale/ticket/<?= $sale['id'] ?>" 
+                                    <a href="<?= BASE_URL ?>sale/ticket/<?= $sale['id'] ?>" 
                                        class="btn btn-sm btn-secondary" 
                                        title="Ver ticket"
                                        target="_blank">
