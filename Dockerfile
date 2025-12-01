@@ -9,6 +9,9 @@ RUN a2enmod rewrite
 # Copiar el código de la aplicación al contenedor
 COPY . /var/www/html/
 
+# Usar .htaccess de producción en Railway
+RUN cp /var/www/html/public/.htaccess.production /var/www/html/public/.htaccess
+
 # Configurar el DocumentRoot para que apunte a la carpeta 'public'
 ENV APACHE_DOCUMENT_ROOT /var/www/html/public
 RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf

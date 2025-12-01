@@ -4,7 +4,7 @@ RewriteEngine On
 # RewriteBase depende del entorno:
 # - En Railway/Producción: RewriteBase /
 # - En XAMPP local: RewriteBase /GestionInventario/public/
-RewriteBase /
+RewriteBase /GestionInventario/public/
 
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
