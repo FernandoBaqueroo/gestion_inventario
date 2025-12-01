@@ -52,7 +52,7 @@ class SupplierController extends Controller
         AuthController::requireAdmin();
 
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-            $this->redirect('/GestionInventario/public/supplier');
+            $this->redirect('' . BASE_URL . 'supplier');
             return;
         }
 
@@ -63,7 +63,7 @@ class SupplierController extends Controller
 
         if (empty($company_name)) {
             $_SESSION['supplier_error'] = 'El nombre de la empresa es obligatorio';
-            $this->redirect('/GestionInventario/public/supplier/create');
+            $this->redirect('' . BASE_URL . 'supplier/create');
             return;
         }
 
@@ -78,10 +78,10 @@ class SupplierController extends Controller
         $supplierModel = $this->model('Supplier');
         if ($supplierModel->create($data)) {
             $_SESSION['supplier_success'] = 'Proveedor creado exitosamente';
-            $this->redirect('/GestionInventario/public/supplier');
+            $this->redirect('' . BASE_URL . 'supplier');
         } else {
             $_SESSION['supplier_error'] = 'Error al crear el proveedor';
-            $this->redirect('/GestionInventario/public/supplier/create');
+            $this->redirect('' . BASE_URL . 'supplier/create');
         }
     }
 
@@ -97,7 +97,7 @@ class SupplierController extends Controller
         $id = $params[0] ?? null;
 
         if (!$id) {
-            $this->redirect('/GestionInventario/public/supplier');
+            $this->redirect('' . BASE_URL . 'supplier');
             return;
         }
 
@@ -106,7 +106,7 @@ class SupplierController extends Controller
 
         if (!$supplier) {
             $_SESSION['supplier_error'] = 'Proveedor no encontrado';
-            $this->redirect('/GestionInventario/public/supplier');
+            $this->redirect('' . BASE_URL . 'supplier');
             return;
         }
 
@@ -131,14 +131,14 @@ class SupplierController extends Controller
         AuthController::requireAdmin();
 
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-            $this->redirect('/GestionInventario/public/supplier');
+            $this->redirect('' . BASE_URL . 'supplier');
             return;
         }
 
         $id = $params[0] ?? null;
 
         if (!$id) {
-            $this->redirect('/GestionInventario/public/supplier');
+            $this->redirect('' . BASE_URL . 'supplier');
             return;
         }
 
@@ -149,7 +149,7 @@ class SupplierController extends Controller
 
         if (empty($company_name)) {
             $_SESSION['supplier_error'] = 'El nombre de la empresa es obligatorio';
-            $this->redirect('/GestionInventario/public/supplier/edit/' . $id);
+            $this->redirect('' . BASE_URL . 'supplier/edit/' . $id);
             return;
         }
 
@@ -164,10 +164,10 @@ class SupplierController extends Controller
         $supplierModel = $this->model('Supplier');
         if ($supplierModel->update($id, $data)) {
             $_SESSION['supplier_success'] = 'Proveedor actualizado exitosamente';
-            $this->redirect('/GestionInventario/public/supplier');
+            $this->redirect('' . BASE_URL . 'supplier');
         } else {
             $_SESSION['supplier_error'] = 'Error al actualizar el proveedor';
-            $this->redirect('/GestionInventario/public/supplier/edit/' . $id);
+            $this->redirect('' . BASE_URL . 'supplier/edit/' . $id);
         }
     }
 
@@ -184,7 +184,7 @@ class SupplierController extends Controller
 
         if (!$id) {
             $_SESSION['supplier_error'] = 'ID no válido';
-            $this->redirect('/GestionInventario/public/supplier');
+            $this->redirect('' . BASE_URL . 'supplier');
             return;
         }
 
@@ -204,7 +204,7 @@ class SupplierController extends Controller
 
         if ($hasProducts) {
             $_SESSION['supplier_error'] = 'No se puede eliminar el proveedor porque tiene productos asociados. Primero elimine o reasigne los productos.';
-            $this->redirect('/GestionInventario/public/supplier');
+            $this->redirect('' . BASE_URL . 'supplier');
             return;
         }
 
@@ -214,6 +214,6 @@ class SupplierController extends Controller
             $_SESSION['supplier_error'] = 'Error al eliminar el proveedor';
         }
 
-        $this->redirect('/GestionInventario/public/supplier');
+        $this->redirect('' . BASE_URL . 'supplier');
     }
 }

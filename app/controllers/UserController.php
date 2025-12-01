@@ -54,7 +54,7 @@ class UserController extends Controller
         AuthController::requireAdmin();
 
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-            $this->redirect('/GestionInventario/public/user');
+            $this->redirect('' . BASE_URL . 'user');
             return;
         }
 
@@ -66,19 +66,19 @@ class UserController extends Controller
 
         if (empty($username) || empty($password)) {
             $_SESSION['user_error'] = 'El nombre de usuario y contraseña son obligatorios';
-            $this->redirect('/GestionInventario/public/user/create');
+            $this->redirect('' . BASE_URL . 'user/create');
             return;
         }
 
         if ($password !== $password_confirm) {
             $_SESSION['user_error'] = 'Las contraseñas no coinciden';
-            $this->redirect('/GestionInventario/public/user/create');
+            $this->redirect('' . BASE_URL . 'user/create');
             return;
         }
 
         if (strlen($password) < 6) {
             $_SESSION['user_error'] = 'La contraseña debe tener al menos 6 caracteres';
-            $this->redirect('/GestionInventario/public/user/create');
+            $this->redirect('' . BASE_URL . 'user/create');
             return;
         }
 
@@ -86,17 +86,17 @@ class UserController extends Controller
         $userModel = $this->model('User');
         if ($userModel->findByUsername($username)) {
             $_SESSION['user_error'] = 'El nombre de usuario ya existe';
-            $this->redirect('/GestionInventario/public/user/create');
+            $this->redirect('' . BASE_URL . 'user/create');
             return;
         }
 
         // Crear usuario
         if ($userModel->create($username, $password, $role)) {
             $_SESSION['user_success'] = 'Usuario creado exitosamente';
-            $this->redirect('/GestionInventario/public/user');
+            $this->redirect('' . BASE_URL . 'user');
         } else {
             $_SESSION['user_error'] = 'Error al crear el usuario';
-            $this->redirect('/GestionInventario/public/user/create');
+            $this->redirect('' . BASE_URL . 'user/create');
         }
     }
 
@@ -112,7 +112,7 @@ class UserController extends Controller
         $id = $params[0] ?? null;
 
         if (!$id) {
-            $this->redirect('/GestionInventario/public/user');
+            $this->redirect('' . BASE_URL . 'user');
             return;
         }
 
@@ -121,7 +121,7 @@ class UserController extends Controller
 
         if (!$user) {
             $_SESSION['user_error'] = 'Usuario no encontrado';
-            $this->redirect('/GestionInventario/public/user');
+            $this->redirect('' . BASE_URL . 'user');
             return;
         }
 
@@ -146,14 +146,14 @@ class UserController extends Controller
         AuthController::requireAdmin();
 
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-            $this->redirect('/GestionInventario/public/user');
+            $this->redirect('' . BASE_URL . 'user');
             return;
         }
 
         $id = $params[0] ?? null;
 
         if (!$id) {
-            $this->redirect('/GestionInventario/public/user');
+            $this->redirect('' . BASE_URL . 'user');
             return;
         }
 
@@ -165,7 +165,7 @@ class UserController extends Controller
 
         if (empty($username)) {
             $_SESSION['user_error'] = 'El nombre de usuario es obligatorio';
-            $this->redirect('/GestionInventario/public/user/edit/' . $id);
+            $this->redirect('' . BASE_URL . 'user/edit/' . $id);
             return;
         }
 
@@ -173,13 +173,13 @@ class UserController extends Controller
         if (!empty($password)) {
             if ($password !== $password_confirm) {
                 $_SESSION['user_error'] = 'Las contraseñas no coinciden';
-                $this->redirect('/GestionInventario/public/user/edit/' . $id);
+                $this->redirect('' . BASE_URL . 'user/edit/' . $id);
                 return;
             }
 
             if (strlen($password) < 6) {
                 $_SESSION['user_error'] = 'La contraseña debe tener al menos 6 caracteres';
-                $this->redirect('/GestionInventario/public/user/edit/' . $id);
+                $this->redirect('' . BASE_URL . 'user/edit/' . $id);
                 return;
             }
         }
@@ -195,10 +195,10 @@ class UserController extends Controller
         $userModel = $this->model('User');
         if ($userModel->updateUser($id, $data)) {
             $_SESSION['user_success'] = 'Usuario actualizado exitosamente';
-            $this->redirect('/GestionInventario/public/user');
+            $this->redirect('' . BASE_URL . 'user');
         } else {
             $_SESSION['user_error'] = 'Error al actualizar el usuario';
-            $this->redirect('/GestionInventario/public/user/edit/' . $id);
+            $this->redirect('' . BASE_URL . 'user/edit/' . $id);
         }
     }
 
@@ -215,14 +215,14 @@ class UserController extends Controller
 
         if (!$id) {
             $_SESSION['user_error'] = 'ID no válido';
-            $this->redirect('/GestionInventario/public/user');
+            $this->redirect('' . BASE_URL . 'user');
             return;
         }
 
         // No permitir eliminar el usuario actual
         if ($id == $_SESSION['user_id']) {
             $_SESSION['user_error'] = 'No puedes eliminar tu propia cuenta';
-            $this->redirect('/GestionInventario/public/user');
+            $this->redirect('' . BASE_URL . 'user');
             return;
         }
 
@@ -234,6 +234,6 @@ class UserController extends Controller
             $_SESSION['user_error'] = 'Error al eliminar el usuario';
         }
 
-        $this->redirect('/GestionInventario/public/user');
+        $this->redirect('' . BASE_URL . 'user');
     }
 }

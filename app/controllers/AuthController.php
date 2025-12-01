@@ -9,7 +9,7 @@ class AuthController extends Controller
     {
         // Si ya está autenticado, redirigir al dashboard
         if (isset($_SESSION['user_id'])) {
-            $this->redirect('/GestionInventario/public/');
+            $this->redirect('' . BASE_URL . '');
         }
 
         // Mostrar vista de login
@@ -30,7 +30,7 @@ class AuthController extends Controller
     public function authenticate()
     {
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-            $this->redirect('/GestionInventario/public/auth/login');
+            $this->redirect('' . BASE_URL . 'auth/login');
             return;
         }
 
@@ -41,7 +41,7 @@ class AuthController extends Controller
         // Validar campos vacíos
         if (empty($username) || empty($password)) {
             $_SESSION['login_error'] = 'Por favor, completa todos los campos';
-            $this->redirect('/GestionInventario/public/auth/login');
+            $this->redirect('' . BASE_URL . 'auth/login');
             return;
         }
 
@@ -52,7 +52,7 @@ class AuthController extends Controller
         // Verificar si existe y la contraseña es correcta
         if (!$user || !$userModel->verifyPassword($password, $user['password'])) {
             $_SESSION['login_error'] = 'Usuario o contraseña incorrectos';
-            $this->redirect('/GestionInventario/public/auth/login');
+            $this->redirect('' . BASE_URL . 'auth/login');
             return;
         }
 
@@ -63,7 +63,7 @@ class AuthController extends Controller
         $_SESSION['login_time'] = time();
 
         // Redirigir al dashboard
-        $this->redirect('/GestionInventario/public/');
+        $this->redirect('' . BASE_URL . '');
     }
 
     /**
@@ -82,7 +82,7 @@ class AuthController extends Controller
         session_destroy();
 
         // Redirigir al login
-        $this->redirect('/GestionInventario/public/auth/login');
+        $this->redirect('' . BASE_URL . 'auth/login');
     }
 
     /**
@@ -116,7 +116,7 @@ class AuthController extends Controller
     {
         if (!self::isAuthenticated()) {
             $_SESSION['login_error'] = 'Debes iniciar sesión para acceder';
-            header('Location: /GestionInventario/public/auth/login');
+            header('Location: ' . BASE_URL . 'auth/login');
             exit;
         }
     }
@@ -130,7 +130,7 @@ class AuthController extends Controller
 
         if (!self::isAdmin()) {
             $_SESSION['error'] = 'No tienes permisos para acceder a esta sección';
-            header('Location: /GestionInventario/public/');
+            header('Location: ' . BASE_URL . '');
             exit;
         }
     }

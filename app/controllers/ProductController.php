@@ -58,7 +58,7 @@ class ProductController extends Controller
         AuthController::requireAdmin();
 
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-            $this->redirect('/GestionInventario/public/product');
+            $this->redirect('' . BASE_URL . 'product');
             return;
         }
 
@@ -70,7 +70,7 @@ class ProductController extends Controller
 
         if (empty($code) || empty($name) || empty($price) || empty($stock)) {
             $_SESSION['product_error'] = 'Todos los campos obligatorios deben ser completados';
-            $this->redirect('/GestionInventario/public/product/create');
+            $this->redirect('' . BASE_URL . 'product/create');
             return;
         }
 
@@ -78,7 +78,7 @@ class ProductController extends Controller
         $productModel = $this->model('Product');
         if ($productModel->findByCode($code)) {
             $_SESSION['product_error'] = 'El código del producto ya existe';
-            $this->redirect('/GestionInventario/public/product/create');
+            $this->redirect('' . BASE_URL . 'product/create');
             return;
         }
 
@@ -96,10 +96,10 @@ class ProductController extends Controller
         //! Crear producto
         if ($productModel->create($data)) {
             $_SESSION['product_success'] = 'Producto creado exitosamente';
-            $this->redirect('/GestionInventario/public/product');
+            $this->redirect('' . BASE_URL . 'product');
         } else {
             $_SESSION['product_error'] = 'Error al crear el producto';
-            $this->redirect('/GestionInventario/public/product/create');
+            $this->redirect('' . BASE_URL . 'product/create');
         }
     }
 
@@ -115,7 +115,7 @@ class ProductController extends Controller
         $id = $params[0] ?? null;
 
         if (!$id) {
-            $this->redirect('/GestionInventario/public/product');
+            $this->redirect('' . BASE_URL . 'product');
             return;
         }
 
@@ -124,7 +124,7 @@ class ProductController extends Controller
 
         if (!$product) {
             $_SESSION['product_error'] = 'Producto no encontrado';
-            $this->redirect('/GestionInventario/public/product');
+            $this->redirect('' . BASE_URL . 'product');
             return;
         }
 
@@ -154,14 +154,14 @@ class ProductController extends Controller
         AuthController::requireAdmin();
 
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-            $this->redirect('/GestionInventario/public/product');
+            $this->redirect('' . BASE_URL . 'product');
             return;
         }
 
         $id = $params[0] ?? null;
 
         if (!$id) {
-            $this->redirect('/GestionInventario/public/product');
+            $this->redirect('' . BASE_URL . 'product');
             return;
         }
 
@@ -171,7 +171,7 @@ class ProductController extends Controller
 
         if (!$product) {
             $_SESSION['product_error'] = 'Producto no encontrado';
-            $this->redirect('/GestionInventario/public/product');
+            $this->redirect('' . BASE_URL . 'product');
             return;
         }
 
@@ -183,7 +183,7 @@ class ProductController extends Controller
 
         if (empty($code) || empty($name) || empty($price) || empty($stock)) {
             $_SESSION['product_error'] = 'Todos los campos obligatorios deben ser completados';
-            $this->redirect('/GestionInventario/public/product/edit/' . $id);
+            $this->redirect('' . BASE_URL . 'product/edit/' . $id);
             return;
         }
 
@@ -208,10 +208,10 @@ class ProductController extends Controller
         // Actualizar producto
         if ($productModel->update($id, $data)) {
             $_SESSION['product_success'] = 'Producto actualizado exitosamente';
-            $this->redirect('/GestionInventario/public/product');
+            $this->redirect('' . BASE_URL . 'product');
         } else {
             $_SESSION['product_error'] = 'Error al actualizar el producto';
-            $this->redirect('/GestionInventario/public/product/edit/' . $id);
+            $this->redirect('' . BASE_URL . 'product/edit/' . $id);
         }
     }
 
@@ -228,7 +228,7 @@ class ProductController extends Controller
 
         if (!$id) {
             $_SESSION['product_error'] = 'ID no válido';
-            $this->redirect('/GestionInventario/public/product');
+            $this->redirect('' . BASE_URL . 'product');
             return;
         }
 
@@ -240,7 +240,7 @@ class ProductController extends Controller
             $_SESSION['product_error'] = 'Error al eliminar el producto';
         }
 
-        $this->redirect('/GestionInventario/public/product');
+        $this->redirect('' . BASE_URL . 'product');
     }
 
     /**
@@ -254,7 +254,7 @@ class ProductController extends Controller
 
         if (!$id) {
             $_SESSION['product_error'] = 'ID no válido';
-            $this->redirect('/GestionInventario/public/product');
+            $this->redirect('' . BASE_URL . 'product');
             return;
         }
 
@@ -263,7 +263,7 @@ class ProductController extends Controller
 
         if (!$product) {
             $_SESSION['product_error'] = 'Producto no encontrado';
-            $this->redirect('/GestionInventario/public/product');
+            $this->redirect('' . BASE_URL . 'product');
             return;
         }
 
@@ -325,7 +325,7 @@ class ProductController extends Controller
 
         //! 6. Mover archivo
         if (move_uploaded_file($file['tmp_name'], $fullPath)) {
-            return '/GestionInventario/public/uploads/products/' . $fileName;
+            return '' . BASE_URL . 'uploads/products/' . $fileName;
         }
 
         return '';
@@ -343,7 +343,7 @@ class ProductController extends Controller
         }
 
         //! 1. Convertir ruta web a ruta del sistema
-        $filePath = str_replace('/GestionInventario/public/', '../public/', $imagePath);
+        $filePath = str_replace('' . BASE_URL . '', '../public/', $imagePath);
 
         if (file_exists($filePath)) {
             unlink($filePath);

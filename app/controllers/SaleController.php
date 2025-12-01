@@ -82,7 +82,7 @@ class SaleController extends Controller
     public function store()
     {
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-            $this->redirect('/GestionInventario/public/sale');
+            $this->redirect('' . BASE_URL . 'sale');
             return;
         }
 
@@ -92,7 +92,7 @@ class SaleController extends Controller
 
         if (empty($items)) {
             $_SESSION['sale_error'] = 'El carrito está vacío';
-            $this->redirect('/GestionInventario/public/sale/create');
+            $this->redirect('' . BASE_URL . 'sale/create');
             return;
         }
 
@@ -104,14 +104,14 @@ class SaleController extends Controller
             if ($saleId) {
                 $_SESSION['sale_success'] = 'Venta registrada exitosamente';
                 $_SESSION['last_sale_id'] = $saleId;
-                $this->redirect('/GestionInventario/public/sale/show/' . $saleId);
+                $this->redirect('' . BASE_URL . 'sale/show/' . $saleId);
             } else {
                 $_SESSION['sale_error'] = 'Error al registrar la venta. Verifica el stock disponible.';
-                $this->redirect('/GestionInventario/public/sale/create');
+                $this->redirect('' . BASE_URL . 'sale/create');
             }
         } catch (Exception $e) {
             $_SESSION['sale_error'] = 'Error al registrar la venta: ' . $e->getMessage();
-            $this->redirect('/GestionInventario/public/sale/create');
+            $this->redirect('' . BASE_URL . 'sale/create');
         }
     }
 
@@ -123,7 +123,7 @@ class SaleController extends Controller
         $id = $params[0] ?? null;
 
         if (!$id) {
-            $this->redirect('/GestionInventario/public/sale');
+            $this->redirect('' . BASE_URL . 'sale');
             return;
         }
 
@@ -132,7 +132,7 @@ class SaleController extends Controller
 
         if (!$sale) {
             $_SESSION['sale_error'] = 'Venta no encontrada';
-            $this->redirect('/GestionInventario/public/sale');
+            $this->redirect('' . BASE_URL . 'sale');
             return;
         }
 
@@ -152,7 +152,7 @@ class SaleController extends Controller
         $id = $params[0] ?? null;
 
         if (!$id) {
-            $this->redirect('/GestionInventario/public/sale');
+            $this->redirect('' . BASE_URL . 'sale');
             return;
         }
 
@@ -161,7 +161,7 @@ class SaleController extends Controller
 
         if (!$sale) {
             $_SESSION['sale_error'] = 'Venta no encontrada';
-            $this->redirect('/GestionInventario/public/sale');
+            $this->redirect('' . BASE_URL . 'sale');
             return;
         }
 

@@ -55,7 +55,7 @@ class CategoryController extends Controller
         AuthController::requireAdmin();
 
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-            $this->redirect('/GestionInventario/public/category');
+            $this->redirect('' . BASE_URL . 'category');
             return;
         }
 
@@ -65,7 +65,7 @@ class CategoryController extends Controller
 
         if (empty($name) || empty($description)) {
             $_SESSION['category_error'] = 'Todos los campos obligatorios deben ser completados';
-            $this->redirect('/GestionInventario/public/category/create');
+            $this->redirect('' . BASE_URL . 'category/create');
             return;
         }
 
@@ -73,7 +73,7 @@ class CategoryController extends Controller
         $categoryModel = $this->model('Category');
         if ($categoryModel->getByName($name)) {
             $_SESSION['category_error'] = 'El nombre de la categoría ya existe';
-            $this->redirect('/GestionInventario/public/category/create');
+            $this->redirect('' . BASE_URL . 'category/create');
             return;
         }
 
@@ -86,10 +86,10 @@ class CategoryController extends Controller
         //! 4. Crear la categoría
         if ($categoryModel->create($data)) {
             $_SESSION['category_success'] = 'Categoría creada exitosamente';
-            $this->redirect('/GestionInventario/public/category');
+            $this->redirect('' . BASE_URL . 'category');
         } else {
             $_SESSION['category_error'] = 'Error al crear la categoría';
-            $this->redirect('/GestionInventario/public/category/create');
+            $this->redirect('' . BASE_URL . 'category/create');
         }
     }
 
@@ -105,7 +105,7 @@ class CategoryController extends Controller
         $id = $params[0] ?? null;
 
         if (!$id) {
-            $this->redirect('/GestionInventario/public/category');
+            $this->redirect('' . BASE_URL . 'category');
             return;
         }
 
@@ -114,7 +114,7 @@ class CategoryController extends Controller
 
         if (!$category) {
             $_SESSION['category_error'] = 'Categoría no encontrada';
-            $this->redirect('/GestionInventario/public/category');
+            $this->redirect('' . BASE_URL . 'category');
             return;
         }
 
@@ -139,14 +139,14 @@ class CategoryController extends Controller
         AuthController::requireAdmin();
 
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-            $this->redirect('/GestionInventario/public/category');
+            $this->redirect('' . BASE_URL . 'category');
             return;
         }
 
         $id = $params[0] ?? null;
 
         if (!$id) {
-            $this->redirect('/GestionInventario/public/category');
+            $this->redirect('' . BASE_URL . 'category');
             return;
         }
 
@@ -156,7 +156,7 @@ class CategoryController extends Controller
 
         if (empty($name)) {
             $_SESSION['category_error'] = 'El nombre es obligatorio';
-            $this->redirect('/GestionInventario/public/category/edit/' . $id);
+            $this->redirect('' . BASE_URL . 'category/edit/' . $id);
             return;
         }
 
@@ -170,10 +170,10 @@ class CategoryController extends Controller
         $categoryModel = $this->model('Category');
         if ($categoryModel->update($id, $data)) {
             $_SESSION['category_success'] = 'Categoría actualizada exitosamente';
-            $this->redirect('/GestionInventario/public/category');
+            $this->redirect('' . BASE_URL . 'category');
         } else {
             $_SESSION['category_error'] = 'Error al actualizar la categoría';
-            $this->redirect('/GestionInventario/public/category/edit/' . $id);
+            $this->redirect('' . BASE_URL . 'category/edit/' . $id);
         }
     }
 
@@ -190,7 +190,7 @@ class CategoryController extends Controller
 
         if (!$id) {
             $_SESSION['category_error'] = 'ID no válido';
-            $this->redirect('/GestionInventario/public/category');
+            $this->redirect('' . BASE_URL . 'category');
             return;
         }
 
@@ -210,7 +210,7 @@ class CategoryController extends Controller
 
         if ($hasProducts) {
             $_SESSION['category_error'] = 'No se puede eliminar la categoría porque tiene productos asociados. Primero elimine o reasigne los productos.';
-            $this->redirect('/GestionInventario/public/category');
+            $this->redirect('' . BASE_URL . 'category');
             return;
         }
 
@@ -220,6 +220,6 @@ class CategoryController extends Controller
             $_SESSION['category_error'] = 'Error al eliminar la categoría';
         }
 
-        $this->redirect('/GestionInventario/public/category');
+        $this->redirect('' . BASE_URL . 'category');
     }
 }
