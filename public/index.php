@@ -2,10 +2,13 @@
 
 session_start();
 
-// Show errors for debugging
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+// Mostrar errores solo en desarrollo (XAMPP)
+// En producción (Railway) estos deben estar desactivados
+if (getenv('APP_ENV') !== 'production') {
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+}
 
 // Cargar archivos del core
 require_once '../app/config/db.php';

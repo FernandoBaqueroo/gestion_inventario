@@ -1,0 +1,27 @@
+# Environment variables
+.env
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Uploads (opcional: si quieres que las imágenes no se suban a Git)
+# public/uploads/products/*.jpg
+# public/uploads/products/*.png
+# public/uploads/products/*.jpeg
+
+# Cache
+cache/*.json
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+

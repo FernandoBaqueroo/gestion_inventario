@@ -1,0 +1,8 @@
+.git
+.gitignore
+README.md
+DOCUMENTATION.md
+learning_plan.md
+inventory_system.sql
+Dockerfile
+.dockerignore

@@ -1,6 +1,10 @@
 Options -MultiViews
 RewriteEngine On
-RewriteBase /GestionInventario/public/
+
+# RewriteBase depende del entorno:
+# - En Railway/Producción: RewriteBase /
+# - En XAMPP local: RewriteBase /GestionInventario/public/
+RewriteBase /
 
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
