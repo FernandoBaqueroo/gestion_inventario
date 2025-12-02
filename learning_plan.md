@@ -169,6 +169,3 @@ Organizaremos el código para separar la lógica (PHP) de la presentación (HTML
 3.  Mostrar esos datos en una vista del Dashboard.
 
 ---
-
-## Siguientes Pasos
-¿Te parece bien este plan? Si estás de acuerdo, comenzaremos con la **Fase 1: Configuración Inicial y Base de Datos**.
